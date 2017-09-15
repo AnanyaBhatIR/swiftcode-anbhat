@@ -20,7 +20,7 @@ public class AgentService {
                     .setQueryParameter("lang", "en")
                     .setQueryParameter("sessionId", UUID.randomUUID().toString())
                     .setQueryParameter("timezone", "2017-08-09T03:25:23+0530")
-                    .setHeader("Authorization", "Bearer e8a14f93846741d09b487d2825158f5b")
+                    .setHeader("Authorization", "Bearer 946df4ead6524dbcaeb5c6c2409462b6")
                     .get();
             JsonNode response = responsePromise.thenApply(WSResponse::asJson).toCompletableFuture().get();
             a.keyword = response.get("result").get("parameters").get("q").asText();
@@ -28,6 +28,6 @@ public class AgentService {
         catch(Exception ex){
             ex.printStackTrace();
         }
-        return newsAgentResponse;
+        return a;
     }
 }
