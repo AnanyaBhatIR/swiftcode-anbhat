@@ -4,16 +4,28 @@
 <head>
    <title> Chat</title>
    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
-   <link rel="stylesheet" href="/assets/stylesheets/chat.css">
+   <link rel="stylesheet" href="/assets/stylesheets/main.css">
 </head>
 
 <body ng-app="chatApp" ng-controller="chatController" layout="row" layout-align="center stretch">
 
    <md-card flex="none" layout="column">
-       <md-content flex="90" id="message-pane" style="width: 800px; background: url(https://i.pinimg.com/736x/1d/6e/89/1d6e89e2ba27fe3ffbb0156937592f65--water-dragon-sea-dragon.jpg); 
+       <md-content flex="90" id="message-pane" style="width: 700px; background: url(https://i.pinimg.com/736x/3c/3c/bf/3c3cbfc15da5dab01290b943dd87470b--simple-doodle-art-simple-doodles.jpg); 
        background-repeat:no-repeat;
        background-size:cover;
        background-position:center">
+
+      <div ng-repeat="message in messages" layout="column"
+      layout-align="{{message.sender=='BOT' ? 'start start' : 'start end'}}">
+        <md-card style="max-width: 75%;border-radius: 30px; padding: 15px; font-size: 14px;" 
+         ng-style="message.sender=='BOT' ?
+        {'background-color': '#FFFF00'} :
+        {'background-color': '#00FFFF'}">
+        <span>{{message.text}}</span>
+        <span ng-bind-html="trust(message.feedResponse.description)">{{message.feedResponse.description}}</span>
+        <span style="margin-top: 4px; text-align: right; color: #666666 ; font-size: 10px;"> {{message.time}} </span>
+      </md-card>
+      </div>
 
 
        </md-content>

@@ -1,6 +1,6 @@
 package services;
 
-import Data.AgentResponse;
+import data.AgentResponse;
 import com.fasterxml.jackson.databind.JsonNode;
 import play.libs.ws.WS;
 import play.libs.ws.WSRequest;

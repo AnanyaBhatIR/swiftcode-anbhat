@@ -1,6 +1,6 @@
 package services;
 
-import Data.FeedResponse;
+import data.FeedResponse;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import play.libs.ws.WS;
@@ -11,7 +11,7 @@ import java.util.concurrent.CompletionStage;
 import java.util.concurrent.ExecutionException;
 
 public class FeedService {
-    public FeedResponse getfeedResponse(String keyword) {
+    public FeedResponse getFeedResponse(String keyword) {
 
         FeedResponse feedResponseObject = new FeedResponse();
         try {
